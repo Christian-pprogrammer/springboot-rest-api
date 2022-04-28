@@ -1,6 +1,17 @@
 package com.example.springrest.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class BookModel {
+    @SequenceGenerator(
+            name = "book_sequence",
+            sequenceName = "book_sequence",
+            allocationSize = 1
+    )
+    @Id
+    @GeneratedValue
     private Long id;
     private String bookName;
     private Long bookNumber;
