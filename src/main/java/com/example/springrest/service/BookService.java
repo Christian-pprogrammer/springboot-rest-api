@@ -22,6 +22,12 @@ public class BookService {
         return book;
     }
     public void deleteBook(Long id) {
-        this.bookRepository.deleteById(id);
+        try{
+            this.bookRepository.deleteById(id);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
+
 }
