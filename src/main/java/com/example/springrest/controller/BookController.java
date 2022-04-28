@@ -3,9 +3,7 @@ package com.example.springrest.controller;
 import com.example.springrest.model.BookModel;
 import com.example.springrest.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +18,10 @@ public class BookController {
     @GetMapping
     public List<BookModel> getBooks() {
         return this.bookService.getBooks();
+    }
+
+    @PostMapping
+    public BookModel createBook(@RequestBody BookModel bookModel) {
+        return bookService.createBook(bookModel);
     }
 }
